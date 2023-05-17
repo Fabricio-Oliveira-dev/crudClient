@@ -1,0 +1,21 @@
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Alexandre Silva Júnior', '75088663048', 4200.00, '1999-02-12', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Fernando Augusto Pinheiros', '62750754062', 4200.00, '1999-01-18', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Roberto Nunes de Andrade', '39740059007', 4700.00, '2002-08-01', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Gustavo Almirante de Souza', '20342461010', 4900.00, '2002-07-24', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Fabrício de Oliveira e Alves', '32222930073', 5400.00, '1998-06-30', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Pedro Henrique Gomes e Silva', '41654472000', 5200.00, '2005-05-30', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Yukki Naomi', '58873333087', 9000.00, '1993-01-08', 5);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Akira Ayumi', '06480983033', 8800.00, '1989-12-31', 6);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Bertrand Damasco de Paola', '03361965047', 4200.00, '1999-02-12', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Peter Fagundes de Silva e Ferrari', '99310150041', 4500.00, '1990-08-02', 1);
+
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Roberta Peixoto de Jesus', '08322231075', 4300.00, '2002-08-01', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Johanna de Oliveira Alves', '70186235020', 4200.00, '2004-09-27', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Maitê Nunes de Paula', '08032380027', 4400.00, '2003-10-10', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Sophia Gabriela Aparecida', '52127302010', 4900.00, '2002-07-24', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Débora Hana Onorato', '33609778075', 7000.00, '1998-06-30', 4);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Lorena de Paola Santos', '57557668006', 5200.00, '2000-01-05', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Ji-young', '56296531052', 9000.00, '1990-04-11', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Nabi', '54074116014', 8800.00, '1990-03-19', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Staphanie Taylor Filho', '00871345005', 4000.00, '2005-04-04', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Alexandra Fagundes de Silva e Ferrari', '07046899010', 4100.00, '1990-08-02', 0);
