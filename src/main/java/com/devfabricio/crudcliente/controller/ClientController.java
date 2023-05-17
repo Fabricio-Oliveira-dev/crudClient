@@ -2,7 +2,10 @@ package com.devfabricio.crudcliente.controller;
 
 import com.devfabricio.crudcliente.dto.ClientDTO;
 import com.devfabricio.crudcliente.service.ClientService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -19,6 +22,12 @@ public class ClientController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable Long id) {
         ClientDTO dto = clientService.findById(id);
+        return ResponseEntity.ok(dto);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<ClientDTO>> findAll(Pageable pageable) {
+        Page<ClientDTO> dto = clientService.findAllPaged(pageable);
         return ResponseEntity.ok(dto);
     }
 

@@ -4,8 +4,12 @@ import com.devfabricio.crudcliente.dto.ClientDTO;
 import com.devfabricio.crudcliente.entity.Client;
 import com.devfabricio.crudcliente.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ClientService {
@@ -17,6 +21,11 @@ public class ClientService {
     public ClientDTO findById(Long id) {
         Client client = clientRepository.findById(id).get();
         return new ClientDTO(client);
+    }
+
+    public Page<ClientDTO> findAllPaged(Pageable pageable) {
+        Page<Client> clients = clientRepository.findAll(pageable);
+        return clients.map(x -> new ClientDTO(x));
     }
 
     @Transactional
