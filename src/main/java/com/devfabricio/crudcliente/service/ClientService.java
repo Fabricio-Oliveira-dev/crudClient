@@ -3,7 +3,10 @@ package com.devfabricio.crudcliente.service;
 import com.devfabricio.crudcliente.dto.ClientDTO;
 import com.devfabricio.crudcliente.entity.Client;
 import com.devfabricio.crudcliente.repository.ClientRepository;
+import com.devfabricio.crudcliente.service.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,7 +22,9 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id) {
-        Client client = clientRepository.findById(id).get();
+        Client client = clientRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Client Not Found")
+        );
         return new ClientDTO(client);
     }
 
@@ -38,14 +43,24 @@ public class ClientService {
 
     @Transactional
     public ClientDTO update(Long id, ClientDTO dto) {
-        Client client = clientRepository.getReferenceById(id);
-        dtoToEntity(dto, client);
-        client = clientRepository.save(client);
-        return new ClientDTO(client);
+        try {
+            Client client = clientRepository.getReferenceById(id);
+            dtoToEntity(dto, client);
+            client = clientRepository.save(client);
+            return new ClientDTO(client);
+        }
+        catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Id does not exist");
+        }
     }
 
     public void delete(Long id) {
-        clientRepository.deleteById(id);
+        try {
+            clientRepository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException("Id does not exist");
+        }
     }
 
     private static void dtoToEntity(ClientDTO dto, Client client) {

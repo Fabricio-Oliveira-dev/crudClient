@@ -1,19 +1,23 @@
 package com.devfabricio.crudcliente.dto;
 
 import com.devfabricio.crudcliente.entity.Client;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+
+    @NotEmpty(message = "name can not be empty")
     private String name;
     private String cpf;
     private Double income;
+
+    @PastOrPresent(message = "birth date can not be from the future")
     private LocalDate birthDate;
     private Integer children;
-
-    public ClientDTO() { }
 
     public ClientDTO(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.id = id;

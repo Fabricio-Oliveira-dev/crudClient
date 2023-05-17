@@ -2,6 +2,7 @@ package com.devfabricio.crudcliente.controller;
 
 import com.devfabricio.crudcliente.dto.ClientDTO;
 import com.devfabricio.crudcliente.service.ClientService;
+import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,7 +33,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> insert(@RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO dto) {
         dto = clientService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -43,10 +44,11 @@ public class ClientController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid  @RequestBody ClientDTO dto) {
         dto = clientService.update(id, dto);
         return ResponseEntity.ok(dto);
     }
+
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
